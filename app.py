@@ -24,6 +24,19 @@ def init_game():
 # --- 初回のみ初期化 ---
 if "player_cards" not in st.session_state:
     init_game()
+# --- セッション初期化 ---
+if "player_cards" not in st.session_state:
+    init_game()
+
+# 🔐 安全にアクセスするように修正（重要！！）
+if "turn" not in st.session_state:
+    st.session_state.turn = "ai"
+
+if "ai_cards" not in st.session_state:
+    st.session_state.ai_cards = pd.DataFrame()
+
+if "current_ai_card" not in st.session_state:
+    st.session_state.current_ai_card = None
 
 # --- タイトル ---
 st.title("🃏 世界史年号で大富豪（AI先攻）")
